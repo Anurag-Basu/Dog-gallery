@@ -1,14 +1,14 @@
 /// <reference path="../jquery-3.5.1.js" />
 var breeds;
-$.get('https://dog.ceo/api/breeds/list/all', function (data) {
-    breeds = data.message;
-});
-
 $('document').ready(function () {
-    var keys = Object.keys(breeds);
-    keys.forEach(e => {
-        $('#breeds').append(`<option value="${e}">${e}</option>`)
+    $.get('https://dog.ceo/api/breeds/list/all', function (data) {
+        breeds = data.message;
+        var keys = Object.keys(breeds);
+        keys.forEach(e => {
+            $('#breeds').append(`<option value="${e}">${e}</option>`)
+        });
     });
+    
 });
 
 $('#breeds').on('change', function () {
